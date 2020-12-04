@@ -1,0 +1,26 @@
+:root{
+  font-size: 16px;
+}
+html, body
+{
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+::-webkit-scrollbar { width: 6px;}
+::-webkit-scrollbar-track {  border-radius: 10px  }
+::-webkit-scrollbar-thumb { border-radius: 10px; background:#343a40}
+.dropdown.no-arrow .dropdown-toggle::after {
+  display: none;
+}
+.my-sidebar {
+  position: fixed;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  top: 45%;
+  left: 15%;
+}

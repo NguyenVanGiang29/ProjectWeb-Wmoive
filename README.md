@@ -31,7 +31,7 @@
     *	Quản lý đăng ký quảng cáo phim
 
 ### 🛠 Built With
-* [Laravel](https://laravel.com)
+* [Laravel VERSION = '8.17.0'](https://laravel.com)
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
 

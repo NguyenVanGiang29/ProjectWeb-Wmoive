@@ -25,8 +25,8 @@ class Phim extends Model
     	return $this->belongsTo('App\Models\User','user_id','id');
     }
     //Tạo url SEO
-    public function path()
-    {
-        return url("/movie/{$this->id}-" . Str::slug($this->ten_chinh));
-    }
+    // public function path()
+    // {
+    //     return url("/movie/{$this->id}-" . Str::slug($this->ten_chinh));
+    // }
 }

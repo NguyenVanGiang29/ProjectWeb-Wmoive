@@ -1,0 +1,1 @@
+<h6>Điểm trung bình: {{ number_format(get_diemTrungBinh($phim->id), 1) }}</h6>

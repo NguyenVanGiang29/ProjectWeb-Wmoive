@@ -18,6 +18,13 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::get('home', [PageController::class, 'getHome'])->name('home');
+
+
+
+
+
+//Admin
 
 Route::get('dashboard', [PageController::class, 'indexAdmin'])->name('admin.dashboard');
 Route::resource('quyen','App\Http\Controllers\QuyenController');

@@ -1,0 +1,1 @@
+<h5>Lượt đánh giá: {{ get_countDanhGia($phim->id) }}</h5>

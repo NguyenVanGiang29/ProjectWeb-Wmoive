@@ -19,6 +19,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('home', [PageController::class, 'getHome'])->name('home');
+Route::get('all-movies', [PageController::class, 'getAllPhim'])->name('all-movies');
 
 
 

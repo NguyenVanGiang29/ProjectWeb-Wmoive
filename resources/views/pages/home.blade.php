@@ -9,7 +9,7 @@
         </li>
         
         <li class="nav-item">
-            <h6><a class="nav-link font-weight-normal text-dark" href="">Tất cả phim</a></h6>
+            <h6><a class="nav-link font-weight-normal text-dark" href="{{ route('all-movies') }}">Tất cả phim</a></h6>
             {{-- {{ route('all-movies') }} --}}
         </li>
     </ul>

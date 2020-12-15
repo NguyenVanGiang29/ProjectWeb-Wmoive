@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Phim;
 use App\Models\BaiDang;
+use App\Models\LoaiBaiDang;
+use App\Models\TheLoai;
 use DB;
 
 class PageController extends Controller
@@ -15,6 +17,16 @@ class PageController extends Controller
      * @param  \Illuminate\Http\Request  
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $loaiBaiDangs = LoaiBaiDang::all();
+        $theLoais = TheLoai::all();
+
+        view()->share(compact('loaiBaiDangs'));
+        view()->share(compact('theLoais'));
+    } 
+
 
     public function indexAdmin()
     {
@@ -34,6 +46,12 @@ class PageController extends Controller
                             ->take(6)->get();
 
         return view('pages.home',compact('phims', 'tinTucs','baiViets'));
+    }
+
+    public function getAllPhim()
+    {
+        $allPhim = Phim::with('doTuoi', 'user')->orderby('id', 'desc')->paginate(12);
+        return view('pages.allphim', compact('allPhim'));
     }
 
     public function __invoke(Request $request)

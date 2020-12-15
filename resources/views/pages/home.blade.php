@@ -61,7 +61,7 @@
         @endforeach
         </div>
         <div class="col-md-12 text-center">
-            <a class="btn btn-outline-dark rounded-pill" role="button" href="">
+            <a class="btn btn-outline-dark rounded-pill" role="button" href="{{ route('community') }}">
                 Xem thêm
             </a>
         </div>
@@ -97,7 +97,7 @@
             @endforeach
         </div>
         <div class="col-md-12 text-center">
-            <a class="btn btn-outline-dark rounded-pill" role="button" href="">
+            <a class="btn btn-outline-dark rounded-pill" role="button" href="{{ route('community') }}">
                 Xem thêm
             </a>
         </div>

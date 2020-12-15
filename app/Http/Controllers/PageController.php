@@ -54,6 +54,16 @@ class PageController extends Controller
         return view('pages.allphim', compact('allPhim'));
     }
 
+    public function getCommunity()
+    {
+        $baiDangs = BaiDang::with('loaiBaiDang', 'user')->where('trang_thai', 0)->get();
+        $baiNoiBats = BaiDang::with('loaiBaiDang', 'user')
+                        ->where('trang_thai', 0)
+                        ->orderby('created_at', 'desc')
+                        ->take(6)->get();
+        return view('pages.community', compact('baiDangs', 'baiNoiBats'));
+    }
+    
     public function __invoke(Request $request)
     {
         //

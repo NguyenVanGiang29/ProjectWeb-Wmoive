@@ -26,6 +26,6 @@ class BaiDang extends Model
     //Tạo url SEO
     public function url()
     {
-        return url("/post/{$this->id}-" . Str::slug($this->tieu_de));
+        return url("/post/{$this->id}-{$this->tieu_de}");
     }
 }

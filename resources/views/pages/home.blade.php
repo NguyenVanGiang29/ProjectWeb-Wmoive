@@ -18,7 +18,7 @@
     <div class="row responsive1">
         @foreach($phims as $phim)
         <div class="col-md-2 col-sm-6 col-6">
-            <a class="text-decoration-none" href="">
+            <a class="text-decoration-none" href="{{ $phim->path() }}">
                 <div class="card border border-0 ">
                 <img src="upload/phim/{{ $phim->anh_poster }}" class="card-img-top rounded-lg" alt="{{ $phim->ten_chinh }}">
                 <div class="card-body py-3 px-1">
@@ -43,7 +43,7 @@
         <div class="card-deck">
         @foreach($tinTucs as $tinTuc)
         <div class="col-md-4">
-        <a class="text-decoration-none" href="">
+        <a class="text-decoration-none" href="{{ $tinTuc->url() }}">
                 <div class="card mx-0 my-3 rounded-lg border-0 shadow-sm" style="min-height: 18rem">
                 <img src="upload/post/{{ $tinTuc->anh_poster }}" class="card-img-top" style="height: 11rem" alt="">
                 <div class="card-body py-1">
@@ -79,7 +79,7 @@
         <div class="card-deck">
             @foreach($baiViets as $baiViet)
             <div class="col-md-4">
-                <a class="text-decoration-none" href="">
+                <a class="text-decoration-none" href="{{ $baiViet->url() }}">
                     <div class="card mx-0 my-3 rounded-lg border-0 shadow-sm" style="min-height: 18rem">
                     <img src="upload/post/{{ $baiViet->anh_poster }}" class="card-img-top" style="height: 11rem" alt="{{ $baiViet->tieu_de }}">
                     <div class="card-body py-1">

@@ -6,6 +6,8 @@ use App\Http\Controllers\QuyenController;
 use App\Http\Controllers\PhimAdminController;
 use App\Http\Controllers\DanhGiaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ChiTietPhimController;
+use App\Http\Controllers\ChiTietBaiDangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,9 @@ use App\Http\Controllers\UserController;
 
 Route::get('home', [PageController::class, 'getHome'])->name('home');
 Route::get('all-movies', [PageController::class, 'getAllPhim'])->name('all-movies');
+Route::get('movie/{id}-{slug}', [ChiTietPhimController::class, 'show']);
+Route::get('post/{id}-{slug}', [ChiTietBaiDangController::class, 'show']);
+
 
 
 

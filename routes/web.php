@@ -25,6 +25,8 @@ Route::get('all-movies', [PageController::class, 'getAllPhim'])->name('all-movie
 Route::get('movie/{id}-{slug}', [ChiTietPhimController::class, 'show']);
 Route::get('post/{id}-{slug}', [ChiTietBaiDangController::class, 'show']);
 Route::get('community', [PageController::class, 'getCommunity'])->name('community');
+Route::resource('cooperate','App\Http\Controllers\DangKyHopTacController');
+
 
 
 

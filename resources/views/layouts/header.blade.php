@@ -23,10 +23,10 @@
                 <a class="d-none d-sm-block nav-link" href="{{ route('all-movies') }}" style="color: rgb(8, 6, 6)"  role="button">Phim</a> 
             </li>
             <li class="nav-item">
-                <a class="d-none d-sm-block nav-link" href="" style="color: rgb(8, 8, 8)">Cộng đồng</a>
+                <a class="d-none d-sm-block nav-link" href="{{ route('community') }}" style="color: rgb(8, 8, 8)">Cộng đồng</a>
             </li>
             <li class="nav-item">
-                <a class="d-none d-sm-block nav-link" href="" style="color: rgb(8, 7, 7)">Hợp tác</a>
+                <a class="d-none d-sm-block nav-link" href="{{ route('cooperate.index') }}" style="color: rgb(8, 7, 7)">Hợp tác</a>
             </li>    
         </ul>
 

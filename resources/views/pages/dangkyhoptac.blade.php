@@ -31,7 +31,8 @@
         <div>@include('layouts.errors')</div>
       </div>
       <div class="card-body p-0">
-        <form action="{{ route('cooperate.store') }}" method="post" enctype="multipart/form-data" class="d-flex flex-column flex-nowrap p-2">
+        <form action="" method="post" enctype="multipart/form-data" class="d-flex flex-column flex-nowrap p-2">
+          {{-- {{ route('cooperate.store') }} --}}
           @csrf
           <select class="form-control my-2" name="goi_dang_ky" aria-describedby="dkHelp">
             @foreach($goiDangKys as $goiDangKy)

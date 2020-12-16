@@ -63,6 +63,17 @@ class PageController extends Controller
                         ->take(6)->get();
         return view('pages.community', compact('baiDangs', 'baiNoiBats'));
     }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->keyword;
+        $phims = Phim::where('ten_chinh', 'like', '%'.$keyword.'%')
+                ->orwhere('ten_phu', 'like', '%'.$keyword.'%')
+                ->get();
+        $baiDangs = BaiDang::where('tieu_de', 'like', '%'.$keyword.'%')->get();
+
+        return view('pages.search', compact('phims', 'baiDangs'));
+    }
     
     public function __invoke(Request $request)
     {

@@ -115,16 +115,7 @@
                             </span>
                         @endif
                     </div>
-                    <div class="form-group row">
-                        <div class="col-12">
-                            <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
-                            @if ($errors->has('g-recaptcha-response'))
-                                <span class="invalid-feedback d-block">
-                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                    </div>
+                    {{-- capcha --}}
                     <button type="submit" class="btn btn-dark btn-block">Đăng nhập</button>
                 </form>
             </div>
@@ -148,8 +139,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="post">
-                    {{-- {{ route('register.store') }} --}}
+                <form action="{{ route('register.store') }}" method="post">
+                    
                     @csrf
                     <div class="form-group">
                         <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"

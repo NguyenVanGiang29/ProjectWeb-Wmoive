@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChiTietPhimController;
 use App\Http\Controllers\ChiTietBaiDangController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,8 @@ Route::get('community', [PageController::class, 'getCommunity'])->name('communit
 Route::resource('cooperate','App\Http\Controllers\DangKyHopTacController');
 Route::get('search', [PageController::class, 'search'])->name('search');
 Route::post('login', [LoginController::class, 'authenticate'])->name('login');
-Route::get('logout',[LoginController::class, 'logout'])->name('logout');
+Route::get('logout',[LoginController::class, 'logout'])->name('logout');    
+Route::resource('register','App\Http\Controllers\RegisterController');
 
 
 

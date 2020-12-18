@@ -8,6 +8,7 @@ use App\Http\Controllers\DanhGiaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChiTietPhimController;
 use App\Http\Controllers\ChiTietBaiDangController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ Route::get('post/{id}-{slug}', [ChiTietBaiDangController::class, 'show']);
 Route::get('community', [PageController::class, 'getCommunity'])->name('community');
 Route::resource('cooperate','App\Http\Controllers\DangKyHopTacController');
 Route::get('search', [PageController::class, 'search'])->name('search');
+Route::post('login', [LoginController::class, 'authenticate'])->name('login');
+Route::get('logout',[LoginController::class, 'logout'])->name('logout');
 
 
 

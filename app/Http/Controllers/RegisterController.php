@@ -107,7 +107,7 @@ class RegisterController extends Controller
         } catch (Exception $e) {
             return back()->with(['thong-bao' => $e->getMessage(), 'type' => 'danger']);
         }
-
+            
         return back()->with(['thong-bao' => 'Cập nhật thành công', 'type' => 'success']);
     }
 

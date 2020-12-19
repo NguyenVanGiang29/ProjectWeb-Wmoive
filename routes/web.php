@@ -10,6 +10,7 @@ use App\Http\Controllers\ChiTietPhimController;
 use App\Http\Controllers\ChiTietBaiDangController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AjaxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +34,12 @@ Route::post('login', [LoginController::class, 'authenticate'])->name('login');
 Route::get('logout',[LoginController::class, 'logout'])->name('logout');    
 Route::resource('register','App\Http\Controllers\RegisterController');
 Route::get('profile', [PageController::class, 'getProfile'])->name('profile');
+Route::post('changepassword', [UserController::class, 'changePassWord'])->name('changepassword');
 
 
-
-
-
+Route::group(['prefix' => 'ajax'], function(){
+    Route::get('danhgia/{phimId}', [AjaxController::class, 'loadDanhGia']);
+});
 
 
 //Admin

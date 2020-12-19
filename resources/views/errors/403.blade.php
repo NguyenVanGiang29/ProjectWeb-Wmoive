@@ -1,0 +1,1 @@
+<h1>Tài khoản của bạn chưa kích hoạt</h1>

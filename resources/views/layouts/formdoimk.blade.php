@@ -8,7 +8,7 @@
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form action="" method="POST">
+        <form action="{{ route('changepassword') }}" method="POST">
         <div class="modal-body">
             @csrf
             <div class="form-group">

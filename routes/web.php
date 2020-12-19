@@ -32,6 +32,7 @@ Route::get('search', [PageController::class, 'search'])->name('search');
 Route::post('login', [LoginController::class, 'authenticate'])->name('login');
 Route::get('logout',[LoginController::class, 'logout'])->name('logout');    
 Route::resource('register','App\Http\Controllers\RegisterController');
+Route::get('profile', [PageController::class, 'getProfile'])->name('profile');
 
 
 

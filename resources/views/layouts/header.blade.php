@@ -73,8 +73,7 @@
                      style="width: 1.615rem">
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="">Trang cá nhân</a>
-                    {{-- {{ route('profile') }} --}}
+                    <a class="dropdown-item" href="{{ route('profile') }}">Trang cá nhân</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('logout') }}">Đăng xuất</a>
                     

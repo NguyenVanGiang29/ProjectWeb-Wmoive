@@ -7,7 +7,9 @@ use App\Models\Phim;
 use App\Models\BaiDang;
 use App\Models\LoaiBaiDang;
 use App\Models\TheLoai;
+use App\Models\DanhGia;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -75,6 +77,14 @@ class PageController extends Controller
         return view('pages.search', compact('phims', 'baiDangs'));
     }
     
+    public function getProfile()
+    {
+        $user = Auth::user();
+        $baiDangs = BaiDang::with('loaiBaiDang', 'user')->where('user_id', $user->id)->orderby('created_at', 'desc')->get();
+        $danhGias = DanhGia::with('phim', 'user')->where('user_id', $user->id)->orderby('created_at', 'desc')->get();
+        return view('pages.profile', compact('user', 'baiDangs', 'danhGias'));
+    }
+
     public function __invoke(Request $request)
     {
         //

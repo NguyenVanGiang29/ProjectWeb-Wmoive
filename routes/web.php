@@ -38,25 +38,33 @@ Route::post('changepassword', [UserController::class, 'changePassWord'])->name('
 
 
 Route::group(['prefix' => 'ajax'], function(){
+    Route::post('upload-image', [UserController::class, 'uploadHinh'])->name('ajax-upload-image');
     Route::get('danhgia/{phimId}', [AjaxController::class, 'loadDanhGia']);
+    Route::get('binhluan/{baiDangId}', [AjaxController::class, 'loadBinhLuan']);
+    Route::post('binhluan', [AjaxController::class, 'postBinhLuan']);
+    Route::get('binhluan/xoa/{binhLuanId}', [AjaxController::class, 'getXoaBinhLuan']);
+
 });
 
 
 //Admin
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('dashboard', [PageController::class, 'indexAdmin'])->name('admin.dashboard');
+    Route::resource('quyen','App\Http\Controllers\QuyenController');
+    Route::resource('taikhoan','App\Http\Controllers\UserController');
+    Route::get('phim', [PhimAdminController::class, 'index'])->name('admin.phim.index');
+    Route::get('phim/{id}', [PhimAdminController::class,'show'])->name('admin.phim.show');
+    Route::resource('baidang','App\Http\Controllers\BaiDangController');
+    Route::resource('binhluan','App\Http\Controllers\BinhLuanController');
+    Route::get('danhgia',[DanhGiaController::class,'indexAdmin'])->name('admin.danhgia.index');
+    Route::delete('danhgia/{id}','DanhGiaController@destroy');
+    Route::resource('goidangky','App\Http\Controllers\GoiDangKyController');
+    Route::resource('dangkyquangcao','App\Http\Controllers\QuanLyHopTacController');
+    Route::get('phanquyen',[UserController::class,'getPhanQuyen'])->name('phanquyen.index');
+    Route::post('phanquyen','UserController@postPhanQuyen');
 
-Route::get('dashboard', [PageController::class, 'indexAdmin'])->name('admin.dashboard');
-Route::resource('quyen','App\Http\Controllers\QuyenController');
-Route::resource('taikhoan','App\Http\Controllers\UserController');
-Route::get('phim', [PhimAdminController::class, 'index'])->name('admin.phim.index');
-Route::get('phim/{id}', [PhimAdminController::class,'show'])->name('admin.phim.show');
-Route::resource('baidang','App\Http\Controllers\BaiDangController');
-Route::resource('binhluan','App\Http\Controllers\BinhLuanController');
-Route::get('danhgia',[DanhGiaController::class,'indexAdmin'])->name('admin.danhgia.index');
-Route::delete('danhgia/{id}','DanhGiaController@destroy');
-Route::resource('goidangky','App\Http\Controllers\GoiDangKyController');
-Route::resource('dangkyquangcao','App\Http\Controllers\QuanLyHopTacController');
-Route::get('phanquyen',[UserController::class,'getPhanQuyen'])->name('phanquyen.index');
-Route::post('phanquyen','UserController@postPhanQuyen');
+});
+
 
 Route::get('/', function () {
     return view('welcome');

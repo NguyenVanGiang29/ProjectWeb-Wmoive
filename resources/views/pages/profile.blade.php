@@ -18,8 +18,7 @@
                     @include('layouts.alert-custom')
                 </div>
                 <div class="col-md-4">                  
-                    <form action="" id="form-upload-hinh" method="post" enctype="multipart/form-data">
-                        {{-- {{ route('ajax-upload-image') }} --}}
+                    <form action="{{ route('ajax-upload-image') }}" id="form-upload-hinh" method="post" enctype="multipart/form-data">
 						@csrf
                         <input type="image" src="upload/users/{{ $user->hinh_dai_dien }}" width="200px">
 						<input type="file" class="d-none" name="hinh_dai_dien" id="upload-hinh" />

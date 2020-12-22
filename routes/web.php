@@ -23,7 +23,7 @@ use App\Http\Controllers\AjaxController;
 |
 */
 
-Route::get('home', [PageController::class, 'getHome'])->name('home');
+Route::get('/', [PageController::class, 'getHome'])->name('home');
 Route::get('all-movies', [PageController::class, 'getAllPhim'])->name('all-movies');
 Route::get('movie/{id}-{slug}', [ChiTietPhimController::class, 'show']);
 Route::get('post/{id}-{slug}', [ChiTietBaiDangController::class, 'show']);
@@ -66,6 +66,6 @@ Route::group(['prefix' => 'admin'], function(){
 });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });

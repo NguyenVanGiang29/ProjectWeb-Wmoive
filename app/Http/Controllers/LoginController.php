@@ -41,7 +41,7 @@ class LoginController extends Controller
                 auth()->logout();
                 abort(403);
             }
-            return redirect('home');
+            return redirect('/');
         }
         else
             return back()
@@ -50,7 +50,7 @@ class LoginController extends Controller
     
     public function logout(){
         Auth::logout();
-        return redirect('home');
+        return redirect('/');
     } 
 
     public function __invoke(Request $request)

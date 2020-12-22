@@ -103,7 +103,9 @@ class RegisterController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            Auth::user()->update($request->only(['ten_hien_thi']));
+            $user = User::findOrFail($id);
+            $user->ten_hien_thi = $request->ten_hien_thi;
+            $user->update();
         } catch (Exception $e) {
             return back()->with(['thong-bao' => $e->getMessage(), 'type' => 'danger']);
         }

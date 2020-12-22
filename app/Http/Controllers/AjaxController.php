@@ -47,7 +47,7 @@ class AjaxController extends Controller
 			],200);
 		}
     }
-    
+
     public function loadBinhLuan($baiDangId)
     {
         $baiDang = BaiDang::findOrFail($baiDangId);
@@ -82,6 +82,33 @@ class AjaxController extends Controller
 		return response()->json([
 			'error'=>false,
 		],200);
+    }
+
+    public function postCapNhatDanhGia(Request $request)
+    {
+        $user = Auth::user();
+        $danhGia = DanhGia::findOrFail($request->danhGiaId);
+		if($danhGia){
+			try {
+				$danhGia->diem = $request->diemCapNhat;
+                $danhGia->noi_dung = $request->noiDungCapNhat;
+                $danhGia->phim_id = $request->phimId;
+                $danhGia->user_id = $user->id;
+                $danhGia->update();
+			} catch (Exception $e) {
+				return $e->getMessage();
+			}
+			return response()->json([
+				'error'=>false,
+				'thongbao'=>'Cập nhật thành công',
+			],200);
+		}
+		else{
+			return response()->json([
+				'error'=>true,
+				'thongbao'=>'Không tìm thấy đánh giá',
+			],200);
+		}
     }
 
     public function __invoke(Request $request)

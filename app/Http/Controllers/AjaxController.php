@@ -25,6 +25,29 @@ class AjaxController extends Controller
         return view('subpages.danhgia', compact('phim', 'danhGias'));
     }
 
+    public function postDanhGia(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $check = DanhGia::where('phim_id', $request->phim_id)->where('user_id', $user_id)->count();
+		if($check == 0){
+			try {
+				DanhGia::create($request->only(['diem','noi_dung','phim_id'])+['user_id'=>$user_id]);
+			} catch (Exception $e) {
+				return $e->getMessage();    
+			}
+			return response()->json([
+				'error'=>false,
+				'thongbao'=>'Đánh giá thành công',
+			],200);
+		}
+		else{
+			return response()->json([
+				'error'=>true,
+				'thongbao'=>'Không được phép đánh giá',
+			],200);
+		}
+    }
+    
     public function loadBinhLuan($baiDangId)
     {
         $baiDang = BaiDang::findOrFail($baiDangId);

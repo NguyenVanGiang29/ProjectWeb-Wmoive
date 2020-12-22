@@ -124,12 +124,6 @@
                 <div class="float-left">
                     <h6 class="font-weight-normal">Đánh giá</h6>
                 </div>
-                <div class="float-right">
-                    <select class="form-control btn btn-sm">
-                        <option value="1">Mới nhất</option>
-                        <option value="0">Cũ nhât</option>
-                    </select>
-                </div>
             </div>
             
             <hr class="bg-dark">

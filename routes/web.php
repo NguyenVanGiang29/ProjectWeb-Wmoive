@@ -39,6 +39,7 @@ Route::post('changepassword', [UserController::class, 'changePassWord'])->name('
 
 Route::group(['prefix' => 'ajax'], function(){
     Route::post('upload-image', [UserController::class, 'uploadHinh'])->name('ajax-upload-image');
+    Route::post('danhgia', [AjaxController::class, 'postDanhGia']);
     Route::get('danhgia/{phimId}', [AjaxController::class, 'loadDanhGia']);
     Route::get('binhluan/{baiDangId}', [AjaxController::class, 'loadBinhLuan']);
     Route::post('binhluan', [AjaxController::class, 'postBinhLuan']);

@@ -226,7 +226,9 @@ class UserController extends Controller
             $file->move(public_path('upload/users'), $hinhDaiDien);
         }
         try {
-            Auth::user()->update(['hinh_dai_dien' => $hinhDaiDien]);
+            $user = Auth::user();
+            $user->hinh_dai_dien = $hinhDaiDien;
+            $user->update();
         } catch (Exception $e) {
             return back()->with(['thongbao' => $e->getMessage(), 'type' => 'danger']);
         }

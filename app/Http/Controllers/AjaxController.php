@@ -111,6 +111,21 @@ class AjaxController extends Controller
 		}
     }
 
+    public function getXoaDanhGia($danhGiaId)
+    {
+        $danhGia = DanhGia::findOrFail($danhGiaId);
+		try {
+			$danhGia->delete();
+		} catch (Exception $e) {
+			return response()->json([
+				'error'=>true,
+			],200);
+		}
+		return response()->json([
+			'error'=>false,
+		],200);
+    }
+
     public function __invoke(Request $request)
     {
         //

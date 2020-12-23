@@ -43,6 +43,7 @@ Route::group(['prefix' => 'ajax'], function(){
     Route::post('danhgia', [AjaxController::class, 'postDanhGia']);
     Route::get('danhgia/{phimId}', [AjaxController::class, 'loadDanhGia']);
     Route::post('danhgia/capnhat', [AjaxController::class, 'postCapNhatDanhGia']);
+    Route::get('danhgia/xoa/{danhgiaId}', [AjaxController::class, 'getXoaDanhGia']);
 
     Route::get('binhluan/{baiDangId}', [AjaxController::class, 'loadBinhLuan']);
     Route::post('binhluan', [AjaxController::class, 'postBinhLuan']);

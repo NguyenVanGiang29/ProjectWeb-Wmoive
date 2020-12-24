@@ -5,33 +5,6 @@
         <div class="col-md-2">
             <div class="my-sidebar">
             <ul class="my-sidebar-content nav d-flex flex-column" id="myScrollspy">
-                {{-- <li class="nav-item mx-auto">
-                    <span class="nav-link js-like text-{{ Auth::user()->thich()->where('baidang_id', $baiDang->id)->first()->thich==1 ? 'success' : 'dark' }}"
-                     baidang-id="{{ $baiDang->id }}" style="cursor: pointer">
-                        <i class="fas fa-plus"></i>
-                    </span>
-                </li> --}}
-                <li class="nav-item mx-auto">
-                    <span class="nav-link js-like text-dark"
-                     baidang-id="{{ $baiDang->id }}" style="cursor: pointer">
-                        <i class="fas fa-thumbs-up"></i>
-                    </span>
-                </li>
-                <li class="nav-item mx-auto">
-                    {{ get_demLuotThich($baiDang->id) }} điểm
-                </li>
-                {{-- <li class="nav-item mx-auto">
-                    <span class="nav-link js-dislike text-{{ Auth::user()->thich()->where('baidang_id', $baiDang->id)->first()->thich==0 ? 'success' : 'dark' }}"
-                     baidang-id="{{ $baiDang->id }}" style="cursor: pointer">
-                        <i class="fas fa-minus"></i>
-                    </span>
-                </li> --}}
-                <li class="nav-item mx-auto">
-                    <span class="nav-link js-dislike text-dark"
-                     baidang-id="{{ $baiDang->id }}" style="cursor: pointer">
-                        <i class="fas fa-thumbs-down"></i>
-                    </span>
-                </li>
                 <li class="nav-item mx-auto">
                     <a href="#section_binhluan" class="text-dark nav-link">
                         <i class="fas fa-comment"></i>
@@ -58,9 +31,9 @@
                         <li class="list-inline-item">
                             <span class="badge badge-secondary">{{ $baiDang->loaiBaiDang()->first()->ten_loai }}</span>
                         </li>
-                        <li class="list-inline-item">
+                        {{-- <li class="list-inline-item">
                             <p class="card-text mx-2"><i class="far fa-eye"></i>&nbsp;{{ $baiDang->luot_xem }} lượt xem</p>
-                        </li>
+                        </li> --}}
                     </ul>
                     <hr>
                     <img class="card-img-top" src="upload/post/{{ $baiDang->anh_poster }}">

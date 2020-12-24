@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\DanhGia;
+use App\Models\BinhLuan;
 use App\Models\Phim;
 use App\Models\TheLoai;
 use App\Models\TheLoaiPhim;
@@ -51,6 +52,12 @@ function get_countDanhGia($phimId)
 {
     return DanhGia::where('phim_id', $phimId)->count();
 }
+
+function get_countBinhLuan($baidangId)
+{
+    return BinhLuan::where('baidang_id', $baidangId)->count();
+}
+
 function get_diemTrungBinh($phimId)
 {
     return DanhGia::where('phim_id', $phimId)->avg('diem');
@@ -166,11 +173,4 @@ function get_demNgayDangKy()
 function get_demKetQuaSearch($phims, $baiDangs)
 {
     return $phims->count() + $baiDangs->count();
-}
-
-function get_demLuotThich($baiDangId)
-{
-    $countLike = Thich::where('baidang_id', $baiDangId)->where('thich', 1)->count();
-    $countDislike = Thich::where('baidang_id', $baiDangId)->where('thich', 0)->count();
-    return $countLike - $countDislike;
 }

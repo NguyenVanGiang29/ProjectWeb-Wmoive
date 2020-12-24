@@ -30,7 +30,7 @@
                                     <small class="text-muted mr-2">{{ date_format($baiDang->created_at, 'd/m/Y') }}</small>
                                     <span class="badge badge-secondary">{{ $baiDang->loaiBaiDang->ten_loai }}</span>
                                 </p>
-                                <p class="card-text text-dark"><i class="fas fa-comment text-dark"></i> 0 bình luận &nbsp;<i class="far fa-eye text-info"></i> {{ $baiDang->luot_xem }} lượt xem &nbsp;<i class="fas fa-heart text-danger"></i>{{ get_demLuotThich($baiDang->id) }} điểm</p>
+                                <p class="card-text text-dark"><i class="fas fa-comment text-dark"></i> {{ get_countBinhLuan($baiDang->id) }} bình luận<i class="far fa-eye text-info"></i> {{ $baiDang->luot_xem }} lượt xem</p>
                             </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                                     <small class="text-muted mr-2">{{ date_format($baiDang->created_at, 'd/m/Y') }}</small>
                                     <span class="badge badge-secondary">{{ $baiDang->loaiBaiDang->ten_loai }}</span>
                                 </p>
-                                <p class="card-text text-dark"><i class="fas fa-comment text-dark"></i> 0 bình luận &nbsp;<i class="far fa-eye text-info"></i> {{ $baiDang->luot_xem }} lượt xem &nbsp;<i class="fas fa-heart text-danger"></i>{{ get_demLuotThich($baiDang->id) }} điểm</p>
+                                <p class="card-text text-dark"><i class="fas fa-comment text-dark"></i>{{ get_countBinhLuan($baiDang->id) }} bình luận<i class="far fa-eye text-info"></i> {{ $baiDang->luot_xem }} lượt xem</p>
                             </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                     <small class="text-muted">{{ date_format($baiDang->created_at, 'd/m/Y') }}</small>
                                     <span class="badge badge-secondary">{{ $baiDang->loaiBaiDang->ten_loai }}</span>
                                 </p>
-                                <p class="card-text text-dark"><i class="fas fa-comment"></i> 0 bình luận &nbsp;<i class="far fa-eye"></i> {{ $baiDang->luot_xem }} lượt xem &nbsp;<i class="fas fa-heart"></i>{{ get_demLuotThich($baiDang->id) }} điểm</p>
+                                <p class="card-text text-dark"><i class="fas fa-comment"></i> {{ get_countBinhLuan($baiDang->id) }} bình luận<i class="far fa-eye"></i> {{ $baiDang->luot_xem }} lượt xem &nbsp;<i class="fas fa-heart"></i></p>
                             </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                                     <small class="text-muted">{{ date_format($baiDang->created_at, 'd/m/Y') }}</small>
                                     <span class="badge badge-secondary">{{ $baiDang->loaiBaiDang->ten_loai }}</span>
                                 </p>
-                                <p class="card-text text-dark"><i class="fas fa-comment"></i> 0 bình luận &nbsp;<i class="far fa-eye"></i> {{ $baiDang->luot_xem }} lượt xem &nbsp;<i class="fas fa-heart"></i>{{ get_demLuotThich($baiDang->id) }} điểm</p>
+                                <p class="card-text text-dark"><i class="fas fa-comment"></i>{{ get_countBinhLuan($baiDang->id) }} bình luận<i class="far fa-eye"></i> {{ $baiDang->luot_xem }} lượt xem</p>
                             </div>
                             </div>
                         </div>
@@ -134,7 +134,7 @@
                                     <small class="text-muted">{{ date_format($baiDang->created_at, 'd/m/Y') }}</small>
                                     <span class="badge badge-secondary">{{ $baiDang->loaiBaiDang->ten_loai }}</span>
                                 </p>
-                                <p class="card-text text-dark"><i class="fas fa-comment"></i> 0 bình luận &nbsp;<i class="far fa-eye"></i> {{ $baiDang->luot_xem }} lượt xem &nbsp;<i class="fas fa-heart"></i>lượt yêu thích</p>
+                                <p class="card-text text-dark"><i class="fas fa-comment"></i> {{ get_countBinhLuan($baiDang->id) }} bình luận &nbsp;<i class="far fa-eye"></i> {{ $baiDang->luot_xem }} lượt xem &nbsp;<i class="fas fa-heart"></i>lượt yêu thích</p>
                             </div>
                             </div>
                         </div>

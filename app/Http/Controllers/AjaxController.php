@@ -126,6 +126,55 @@ class AjaxController extends Controller
 		],200);
     }
 
+    public function getSuaBinhLuan(Request $request)
+    {
+        $binhLuan = BinhLuan::findOrFail($request->id);
+		try {
+			$binhLuan->update($request->only(['noi_dung']));
+		} catch (Exception $e) {
+			return response()->json([
+				'error'=>true,
+			],200);
+		}
+		return response()->json([
+			'error'=>false,
+		],200);
+    }
+
+    public function postLike(Request $request)
+    {        
+        $is_like = true;
+        $update = false;
+        $baiDangId = $request->baiDangId;
+        $baiDang = BaiDang::findOrFail($baiDangId);
+        $user = Auth::user();
+
+        $like = $user->thich()->where('baidang_id', $baiDang->id)->first();
+        if($like)
+        {
+            $update = true;
+        }
+        else
+        {
+            $like = new Thich;
+        }
+        $like->thich = $is_like;
+        $like->baidang_id = $baiDang->id;
+        $like->user_id = $user->id;
+        if($update)
+        {
+            $like->update();
+            return response()->json(['ms' => 'Cập nhật thành công'], 200);
+        }
+        else
+        {
+            $like->save();
+            return response()->json(['ms' => 'Like thành công'], 200);
+        }
+        
+        return response()->json(['ms' => 'Lỗi'], 200);
+    }
+
     public function __invoke(Request $request)
     {
         //

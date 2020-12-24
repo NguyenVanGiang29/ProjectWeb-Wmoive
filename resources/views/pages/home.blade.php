@@ -52,7 +52,6 @@
                 <div class="card-footer border-top-0 bg-transparent">
                     <div class="d-flex justify-content-between align-items-center">
                         <h6 class="text-dark"> &nbsp;<i class="font-weight-light text-muted">{{ date_format($tinTuc->created_at, 'd/m/Y') }}</i></h6>
-                        <small class="font-weight-nomarl text-dark">{{ get_demLuotThich($tinTuc->id) }} điểm</small>
                     </div>
                 </div>
                 </div>
@@ -88,7 +87,6 @@
                     <div class="card-footer border-top-0 bg-transparent">
                         <div class="d-flex justify-content-between align-items-center">
                             <h6 class="text-dark">&nbsp;<i class="font-weight-light text-muted">{{ date_format($baiViet->created_at, 'd/m/Y') }}</i></h6>
-                            <small class="font-weight-nomarl text-dark">{{ get_demLuotThich($baiViet->id) }} điểm</small>
                         </div>
                     </div>
                     </div>

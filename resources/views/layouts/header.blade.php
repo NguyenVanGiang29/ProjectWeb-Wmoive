@@ -48,15 +48,9 @@
                 <a class="d-none d-sm-block nav-link" role="button"
                     @if(auth()->user()->quyen_id==1) href="{{ route('admin.dashboard') }}"
                     @else
-                    @if(auth()->user()->quyen_id==2) href="{{ route('filmstudio.dashboard') }}" 
+                    @if(auth()->user()->quyen_id==2) href=""
+                    {{-- {{ route('filmstudio.dashboard') }}  --}}
                     @endif @endif target="_blank">Quản trị
-                </a>
-                <a class="d-sm-none nav-link" role="button"
-                    @if(auth()->user()->quyen_id==1) href="{{ route('admin.dashboard') }}"
-                    @else
-                    @if(auth()->user()->quyen_id==2) href="{{ route('filmstudio.dashboard') }}" 
-                    @endif @endif target="_blank">
-                    <i class="fas fa-user-cog"></i>
                 </a>
             </li>
             @endcan

@@ -122,7 +122,7 @@
                   @else
                     <button type="submit" class="btn btn-primary">Lock</button>
                   @endif
-                </form>
+              </form>
             </td>
           </tr>
           @endforeach

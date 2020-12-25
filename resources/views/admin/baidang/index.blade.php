@@ -29,7 +29,7 @@
             <th>Tiêu đề</th>
             <th>Điểm</th>
             <th>Lượt xem</th>
-            <th>Ẩn</th>
+            <th>Trạng thái</th>
             <th>Tuỳ chọn</th>
           </tr>
         </thead>
@@ -42,7 +42,7 @@
             <th>Tiêu đề</th>
             <th>Điểm</th>
             <th>Lượt xem</th>
-            <th>Ẩn</th>
+            <th>Trạng thái</th>
             <th>Tuỳ chọn</th>
           </tr>
         </tfoot>
@@ -63,14 +63,14 @@
             <td>{{ $baiDang->diem }}</td>
             <td>{{ $baiDang->luot_xem }}</td>
             <td>
-              <form action="admin/baidang/{{ $baiDang->id }}" method="POST">
-                @csrf
-                  @if($baiDang->trang_thai == 0)
-                    <button type="submit" class="btn btn-success btn-circle-0 mx">Không</button>
-                  @else
-                    <button type="submit" class="btn btn-danger">Có</button>
-                  @endif
-                </form>
+              <form action="admin/baidang/{{ $baiDang->id }}" method="POST"> 
+                @csrf 
+                @if($baiDang->trang_thai == 0) 
+                <button type="submit" class="btn btn-success btn-circle-0 mx">
+                  <i class="fas fa-check"></i></button> 
+                @else <button type="submit" class="btn btn-danger">
+                  Ẩn</button> 
+                @endif </form>
             </td>
             <td class="d-flex d-flex-column">
               <button class="btn btn-info btn-sm btn-circle mx-1 js-btn-capnhat-baidang" baidang-id="{{ $baiDang->id }}">
@@ -156,4 +156,78 @@
 </div>
 <!-- End Modal update Post -->
 
+@endsection
+
+@section('script')
+  <script>
+    $(document).ready(function () {
+      CKEDITOR.replace('noi_dung', {
+        filebrowserBrowseUrl: 'tools/ckfinder/ckfinder.html',
+        filebrowserUploadUrl: 'tools/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        
+        toolbar: [
+        { name: 'clipboard', items: [ 'Undo', 'Redo' ] },
+        { name: 'styles', items: [ 'Styles', 'Format' ] },
+        { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Strike', '-', 'RemoveFormat' ] },
+        { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
+        { name: 'links', items: [ 'Link', 'Unlink' ] },
+        { name: 'insert', items: [ 'Image' ] },
+        { name: 'tools', items: [ 'Maximize' ] }
+        ],
+
+        extraPlugins: 'image2,uploadimage,uploadfile',
+
+        removePlugins: 'image',
+      });
+
+      var ckeditorUpdate = CKEDITOR.replace('noi_dung1', {
+        filebrowserBrowseUrl: 'tools/ckfinder/ckfinder.html',
+        filebrowserUploadUrl: 'tools/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        
+        toolbar: [
+        { name: 'clipboard', items: [ 'Undo', 'Redo' ] },
+        { name: 'styles', items: [ 'Styles', 'Format' ] },
+        { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Strike', '-', 'RemoveFormat' ] },
+        { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
+        { name: 'links', items: [ 'Link', 'Unlink' ] },
+        { name: 'insert', items: [ 'Image' ] },
+        { name: 'tools', items: [ 'Maximize' ] }
+        ],
+
+        extraPlugins: 'image2,uploadimage,uploadfile',
+
+        removePlugins: 'image',
+      });
+      
+      $('body').on('click', '.js-btn-capnhat-baidang', function (e) {
+      e.preventDefault();
+      var baiDangId = $(this).attr('baidang-id');
+      
+      $.ajax({
+        type: "get",
+        url: "admin/baidang/" + baiDangId + "/edit",
+        dataType: "json",
+        success: function (response) {          
+          $('textarea[name=tieu_de1]').val(response.tieu_de);
+          ckeditorUpdate.setData(response.noi_dung);
+          $('select[name=loaibd_id1]').val(response.loaibd_id);
+          $('#form-update-post').attr('action', 'admin/baidang/' + baiDangId);
+          $('#modalUpdatePost').modal('show');
+        }
+      });
+      });
+      $( '#modalPost' ).modal( {
+        focus: false,
+        
+        // Do not show modal when innitialized.
+        show: false
+      } );
+      $( '#modalUpdatePost' ).modal( {
+        focus: false,
+        
+        // Do not show modal when innitialized.
+        show: false
+      } );
+    });
+  </script>
 @endsection

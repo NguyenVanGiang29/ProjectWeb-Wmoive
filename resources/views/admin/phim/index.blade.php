@@ -54,11 +54,14 @@
             <td>{{ get_countDanhGia($phim->id) }}</td>
             <td>{{ number_format(get_diemTrungBinh($phim->id), 1) }}</td>
             <td class="text-center">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input js-checkbox-update-status" id="phim-{{ $phim->id }}"
-                        value="{{ $phim->id }}" {{ $phim->trang_thai==1 ? 'checked' : '' }}>
-                    <label class="custom-control-label" for="phim-{{ $phim->id }}"></label>
-                </div>
+              <form action="admin/phim/{{ $phim->id }}" method="POST">
+                @csrf
+                  @if($phim->trang_thai == 1)
+                    <button type="submit" class="btn btn-success btn-sm btn-circle"><i class="fas fa-check"></i></button>
+                  @else
+                    <button type="submit" class="btn btn-danger btn-sm btn-circle">No</button>
+                  @endif
+              </form>
             </td>
             <td class="d-flex d-flex-column">
             <a class="btn btn-success btn-sm btn-circle mx-1" href="{{ route('admin.phim.show', $phim->id) }}">

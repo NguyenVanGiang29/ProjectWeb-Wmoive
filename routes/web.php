@@ -12,6 +12,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BaiDangController;
+use App\Http\Controllers\PhimController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,13 +66,14 @@ Route::group(['prefix' => 'admin'], function(){
     Route::resource('baidang','App\Http\Controllers\BaiDangController');
     Route::resource('binhluan','App\Http\Controllers\BinhLuanController');
     Route::get('danhgia',[DanhGiaController::class,'indexAdmin'])->name('admin.danhgia.index');
-    Route::delete('danhgia/{id}','DanhGiaController@destroy');
+    Route::delete('danhgia/{id}',[DanhGiaController::class, 'destroy']);
     Route::resource('goidangky','App\Http\Controllers\GoiDangKyController');
     Route::resource('dangkyquangcao','App\Http\Controllers\QuanLyHopTacController');
     Route::get('phanquyen',[UserController::class,'getPhanQuyen'])->name('phanquyen.index');
     Route::post('phanquyen','UserController@postPhanQuyen');
     Route::post('taikhoan/{id}', [UserController::class, 'postUnlock']);
     Route::post('baidang/{id}', [BaiDangController::class, 'postAnbaidang']);
+    Route::post('phim/{id}', [PhimController::class, 'postHotphim']);
 
 });
 

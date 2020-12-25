@@ -38,46 +38,23 @@
             <th>#ID</th>
             <th>Email</th>
             <th>Tên hiển thị</th>
-            @foreach ($quyens as $quyen)
-              <th>{{ $quyen->ten_quyen }}</th>
-            @endforeach
             <th>Khoá</th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th>#ID</th>
-            <th>Email</th>
-            <th>Tên hiển thị</th>
-            @foreach ($quyens as $quyen)
-              <th>{{ $quyen->ten_quyen }}</th>
-            @endforeach
-            <th>Khoá</th>
-          </tr>
-        </tfoot>
-        <tbody>
           @foreach($users->where('quyen_id',3) as $user)
           <tr>
             <td>{{ $user->id }}</td>
-            <td>{{ $user->email }}</td>
+            <td>{{ $user->email }}</td> 
             <td>{{ $user->ten_hien_thi }}</td>
-            @foreach($quyens as $quyen)
-            <td class="text-center">
-              @if($user->quyen_id==$quyen->id)
-                <input type="radio" name="role-{{ $user->id }}" class="js-radio-phanquyen" checked
-                  value="{{ $quyen->id }}" user-id="{{ $user->id }}">
-              @else
-              <input type="radio" name="role-{{ $user->id }}" class="js-radio-phanquyen"
-                  value="{{ $quyen->id }}" user-id="{{ $user->id }}">
-              @endif
-            </td>
-            @endforeach
             <td>
-              <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input js-btn-lock-taikhoan" id="user-{{ $user->id }}"
-                      value="{{ $user->id }}" {{ $user->trang_thai==1 ? 'checked' : '' }}>
-                  <label class="custom-control-label" for="user-{{ $user->id }}"></label>
-              </div>
+            <form action="admin/taikhoan/{{ $user->id }}" method="POST">
+            @csrf
+              @if($user->trang_thai == 1)
+                <button type="submit" class="btn btn-danger">Unlock</button>
+              @else
+                <button type="submit" class="btn btn-primary">Lock</button>
+              @endif
+            </form>
             </td>
           </tr>
           @endforeach
@@ -94,46 +71,24 @@
             <th>#ID</th>
             <th>Email</th>
             <th>Tên hiển thị</th>
-            @foreach ($quyens as $quyen)
-              <th>{{ $quyen->ten_quyen }}</th>
-            @endforeach
             <th>Khoá</th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th>#ID</th>
-            <th>Email</th>
-            <th>Tên hiển thị</th>
-            @foreach ($quyens as $quyen)
-              <th>{{ $quyen->ten_quyen }}</th>
-            @endforeach
-            <th>Khoá</th>
-          </tr>
-        </tfoot>
         <tbody>
           @foreach($users->where('quyen_id',1) as $user)
           <tr>
             <td>{{ $user->id }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->ten_hien_thi }}</td>
-            @foreach($quyens as $quyen)
-            <td class="text-center">
-              @if($user->quyen_id==$quyen->id)
-                <input type="radio" name="role-{{ $user->id }}" class="js-radio-phanquyen" checked
-                  value="{{ $quyen->id }}" user-id="{{ $user->id }}">
-              @else
-              <input type="radio" name="role-{{ $user->id }}" class="js-radio-phanquyen"
-                  value="{{ $quyen->id }}" user-id="{{ $user->id }}">
-              @endif
-            </td>
-            @endforeach
             <td>
-              <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input js-btn-lock-taikhoan" id="user-{{ $user->id }}"
-                      value="{{ $user->id }}" {{ $user->trang_thai==1 ? 'checked' : '' }}>
-                  <label class="custom-control-label" for="user-{{ $user->id }}"></label>
-              </div>
+              <form action="admin/taikhoan/{{ $user->id }}" method="POST">
+                @csrf
+                  @if($user->trang_thai == 1)
+                    <button type="submit" class="btn btn-danger">Unlock</button>
+                  @else
+                    <button type="submit" class="btn btn-primary">Lock</button>
+                  @endif
+                </form>
             </td>
           </tr>
           @endforeach
@@ -150,46 +105,24 @@
             <th>#ID</th>
             <th>Email</th>
             <th>Tên hiển thị</th>
-            @foreach ($quyens as $quyen)
-              <th>{{ $quyen->ten_quyen }}</th>
-            @endforeach
             <th>Khoá</th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th>#ID</th>
-            <th>Email</th>
-            <th>Tên hiển thị</th>
-            @foreach ($quyens as $quyen)
-              <th>{{ $quyen->ten_quyen }}</th>
-            @endforeach
-            <th>Khoá</th>
-          </tr>
-        </tfoot>
         <tbody>
           @foreach($users->where('quyen_id',2)->where('trang_thai', '!=', 2) as $user)
           <tr>
             <td>{{ $user->id }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->ten_hien_thi }}</td>
-            @foreach($quyens as $quyen)
             <td class="text-center">
-              @if($user->quyen_id==$quyen->id)
-                <input type="radio" name="role-{{ $user->id }}" class="js-radio-phanquyen" checked
-                  value="{{ $quyen->id }}" user-id="{{ $user->id }}">
-              @else
-              <input type="radio" name="role-{{ $user->id }}" class="js-radio-phanquyen"
-                  value="{{ $quyen->id }}" user-id="{{ $user->id }}">
-              @endif
-            </td>
-            @endforeach
-            <td class="text-center">
-              <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input js-btn-lock-taikhoan" id="user-{{ $user->id }}"
-                      value="{{ $user->id }}" {{ $user->trang_thai==1 ? 'checked' : '' }}>
-                  <label class="custom-control-label" for="user-{{ $user->id }}"></label>
-              </div>
+              <form action="admin/taikhoan/{{ $user->id }}" method="POST">
+                @csrf
+                  @if($user->trang_thai == 1)
+                    <button type="submit" class="btn btn-danger">Unlock</button>
+                  @else
+                    <button type="submit" class="btn btn-primary">Lock</button>
+                  @endif
+                </form>
             </td>
           </tr>
           @endforeach
@@ -202,8 +135,9 @@
   </div>
 </div>
 <!-- .card -->
-
 </div>
+
+
 <!-- /.container-fluid -->
 @endsection
 @section('script')

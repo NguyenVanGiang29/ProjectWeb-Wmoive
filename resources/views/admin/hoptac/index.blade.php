@@ -44,12 +44,14 @@
             </td>
             <td>{{ $user->goiDangKy()->first()->ten_goi }}</td>
             <td>
-              <button class="btn btn-success btn-sm btn-circle js-btn-duyet-dang-ky" id-user="{{ $user->id }}">
-                <i class="fas fa-check"></i>
-              </button>
-              <button class="btn btn-danger btn-sm btn-circle js-btn-xoa-hoptac" data-id="{{ $user->id }}" data-toggle="modal" data-target="#modal_delete">
-                <span class="far fa-trash-alt"></span>
-              </button>
+              <form action="" method="POST">
+                <button class="btn btn-success btn-sm btn-circle js-btn-duyet-dang-ky" id-user="{{ $user->id }}">
+                  <i class="fas fa-check"></i>
+                </button>
+                <button class="btn btn-danger btn-sm btn-circle js-btn-xoa-hoptac" data-id="{{ $user->id }}" data-toggle="modal" data-target="#modal_delete">
+                  <span class="far fa-trash-alt"></span>
+                </button>
+              </form>
             </td>
           </tr>
           @endforeach

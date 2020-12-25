@@ -11,6 +11,7 @@ use App\Http\Controllers\ChiTietBaiDangController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\BaiDangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,8 @@ Route::group(['prefix' => 'admin'], function(){
     Route::resource('dangkyquangcao','App\Http\Controllers\QuanLyHopTacController');
     Route::get('phanquyen',[UserController::class,'getPhanQuyen'])->name('phanquyen.index');
     Route::post('phanquyen','UserController@postPhanQuyen');
+    Route::post('taikhoan/{id}', [UserController::class, 'postUnlock']);
+    Route::post('baidang/{id}', [BaiDangController::class, 'postAnbaidang']);
 
 });
 

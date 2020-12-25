@@ -180,4 +180,16 @@ class BaiDangController extends Controller
         $baiDang->delete();
         return back()->with(['thongbao'=>'Xoá thành công!','type'=>'success']);
     }
+
+    public function postAnbaidang($id){
+        $baiDang = BaiDang::findOrFail($id);
+        if($baiDang->trang_thai == 1){
+            $baiDang->trang_thai = 0;
+        }else{
+            $baiDang->trang_thai = 1;
+        }
+
+        $baiDang->update();
+        return back();
+    }
 }

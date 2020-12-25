@@ -89,6 +89,7 @@
     </div>
   </div>
 </div>
+
 <!-- Modal cập nhật quyền -->
 <div class="modal fade" id="modal-capnhat-goidk" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
   <div class="modal-dialog" role="document">

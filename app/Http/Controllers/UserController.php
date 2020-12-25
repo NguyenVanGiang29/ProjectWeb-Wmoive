@@ -273,4 +273,19 @@ class UserController extends Controller
         
         return back()->with(['thong-bao'=>'Đổi mật khẩu thành công!','type'=>'success']);
     }
+
+    public function postUnlock($id){
+        $user = User::findOrFail($id);
+        if($user->trang_thai ==1){
+            $user->trang_thai = 0;
+        }else{
+            $user->trang_thai = 1;
+        }
+        $user->update();
+
+        return back();
+    }
+
+    
+
 }

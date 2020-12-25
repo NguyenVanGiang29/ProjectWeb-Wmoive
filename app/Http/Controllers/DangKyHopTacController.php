@@ -78,7 +78,7 @@ class DangKyHopTacController extends Controller
         {
             $file = $request->file('hinh_dai_dien');
             $name = $file->getClientOriginalName();
-            $hinh_dai_dien= time().'_'.str_random(5).'-'.$name;
+            $hinh_dai_dien= time().'-'.$name;
             $file->move(public_path('upload/users'), $hinh_dai_dien);
         }
         else {

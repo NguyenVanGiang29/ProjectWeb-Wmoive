@@ -57,7 +57,7 @@ Route::group(['prefix' => 'ajax'], function(){
 
 
 //Admin
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
     Route::get('dashboard', [PageController::class, 'indexAdmin'])->name('admin.dashboard');
     Route::resource('quyen','App\Http\Controllers\QuyenController');
     Route::resource('taikhoan','App\Http\Controllers\UserController');

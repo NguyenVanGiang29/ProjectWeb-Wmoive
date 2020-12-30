@@ -25,6 +25,6 @@
         </ul>
     </div>
     <div class="text-center py-3 bg-dark">
-        <span class="text-white">Copyright &copy;  BK 2020</span>
+        <span class="text-white">BK 2020</span>
     </div>
 </footer>

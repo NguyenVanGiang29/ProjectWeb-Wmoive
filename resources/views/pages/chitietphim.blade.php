@@ -8,11 +8,11 @@
     </div>
 </section>
 <section class="container">
-    <div class="row" style="">
+    <div class="row">
         <div class="col-md-3 col-3">
             <img class="w-100" src="upload/phim/{{ $phim->anh_poster }}" alt="{{ $phim->ten_chinh }}">
         </div>
-        <div class="col-md-9 col-9">
+        <div class="col-md-6 col-6">
             <div class="clearfix mb-n3">
                 <div class="float-left">
                     <h4 >{{ $phim->ten_chinh }}</h4>
@@ -42,7 +42,7 @@
             </div>
             <hr>
             <!-- Centered nav -->
-            <ul class="nav justify-content-center font-weight-bold mt-n3" style ="background: rgb(179, 176, 176)">
+            <ul class="nav justify-content-center font-weight-bold mt-n3">
                 <li class="nav-item">
                     <a class="nav-link text-dark active" data-toggle="tab" href="#noidung">Nội dung</a>
                 </li>
@@ -73,7 +73,7 @@
                             <div class="box-capnhat-danhgia d-none">
                                 <input type="text" class="form-control js-rating_capnhat_noidung"
                                  placeholder="Viết nội dung" value="{{ $danhGias->where('user_id', Auth::user()->id)->first()->noi_dung }}">
-                                <button class="btn btn-outline-dark my-2 js-btn-capnhat-danhgia" id-phim="{{ $phim->id }}" 
+                                <button class="btn btn-outline-dark my-2 js-btn-capnhat-danhgia" id-phim="{{ $phim->id }}"
                                  id-danhgia="{{ $danhGias->where('user_id', Auth::user()->id)->first()->id }}">Sửa</button>
                                 <button class="btn btn-dark my-2 js-btn-huy-danhgia">Huỷ</button>
                             </div>
@@ -104,6 +104,12 @@
             </div>
 
         </div>
+        <div class="col-md-3 col-3">
+            <h5>Tin tức liên quan</h5>
+            <a href="post/6-avengers-endgame-chua-ket-thuc">Avengers: Endgame chưa kết thúc</a><hr>
+            <a href="post/11-thao-luan-co-spoil-avengers-endgame">[THẢO LUẬN CÓ SPOIL] AVENGERS: ENDGAME</a><hr>
+            <a href="post/7-spider-man-far-from-home-duoc-ky-vong-doanh-thu-154-trieu-do-trong-6-ngay">Spider-man với Avengers: So sánh doanh thu. Far From Home được kỳ vọng doanh thu 154 triệu đô trong 6 ngày</a>
+        </div>
     </div>
 </section>
 <section class="container mt-2">
@@ -115,7 +121,7 @@
             <h6 class="font-weight-normal"><strong>Thể loại:</strong> {{ get_theLoaiPhim($phim->id) }}</h6>
             <h6 class="font-weight-normal"><strong>Đạo diễn:</strong> {{ $phim->dao_dien }}</h6>
             <h6 class="font-weight-normal"><strong>Diễn viên:</strong> {{ $phim->dien_vien }}</h6>
-            <h6 class="font-weight-normal"><strong>Khơi chiếu:</strong> {{ $phim->ngay_khoi_chieu }}</h6>
+            <h6 class="font-weight-normal"><strong>Khởi chiếu:</strong> {{ $phim->ngay_khoi_chieu }}</h6>
             <h6 class="font-weight-normal"><strong>Thời lượng:</strong> {{ $phim->thoi_luong }} phút</h6>
         </div>
 
@@ -124,12 +130,18 @@
                 <div class="float-left">
                     <h6 class="font-weight-normal">Đánh giá</h6>
                 </div>
+                 {{-- <div class="float-right">
+                    <select class="form-control btn btn-sm">
+                        <option value="1">Mới nhất</option>
+                        <option value="0">Cũ nhât</option>
+                    </select>
+                </div> --}}
             </div>
-            
-            <hr class="bg-dark">
 
-            <div id="bangdanhgia" >
-                
+            <hr>
+
+            <div id="bangdanhgia">
+
             </div>
 
         </div>
